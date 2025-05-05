@@ -9,6 +9,10 @@ class DummyTFT(nn.Module):
         super().__init__()
         self.linear = nn.Linear(1, 1)
 
+    def forward(self, x):
+        return self.linear(x)
+
+
 # Create models directory
 os.makedirs("models", exist_ok=True)
 
