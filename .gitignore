@@ -3,3 +3,8 @@ __pycache__/
 .env
 models/
 data/
+!models/scaler.pkl
+.DS_Store
+!models/stack.pkl
+!models/xgb.json
+!models/tft_state_dict.pt
