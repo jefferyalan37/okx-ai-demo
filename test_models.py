@@ -12,11 +12,14 @@ DATA_PATH = os.path.join(os.getcwd(), "OKXDemoProject-5", "final_bitcoin_daily_p
 df = pd.read_csv(DATA_PATH)
 
 
-# Define dummy TFT
-class DummyTFT(torch.nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.linear = torch.nn.Linear(1, 1)
+from model_arch.tft_model import TemporalFusionTransformer  # or your actual TFT class
+import torch
+
+# Load the real model state
+tft = TemporalFusionTransformer(...)
+tft.load_state_dict(torch.load("models/tft_state_dict.pt"))
+tft.eval()
+
 
 # Load all models
 scaler = load("models/scaler.pkl")
