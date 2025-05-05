@@ -2,6 +2,15 @@ import numpy as np, torch
 from joblib import load
 from xgboost import XGBRegressor
 from sklearn.ensemble import RandomForestRegressor
+import pandas as pd
+import os
+
+# Path to your real BTC dataset
+DATA_PATH = os.path.join(os.getcwd(), "OKXDemoProject-5", "final_bitcoin_daily_processed.csv")
+
+# Load dataset
+df = pd.read_csv(DATA_PATH)
+
 
 # Define dummy TFT
 class DummyTFT(torch.nn.Module):
