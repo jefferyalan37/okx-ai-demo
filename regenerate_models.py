@@ -4,13 +4,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor
 import xgboost as xgb
 
-class DummyTFT(torch.nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.linear = torch.nn.Linear(10, 1)
+df = pd.read_csv("data/BTCUSD_d.csv")  # path must match
+df['date'] = pd.to_datetime(df['date'])
+df.set_index('date', inplace=True)
 
-    def forward(self, x):
-        return self.linear(x)
+# Normalize, create features, etc.
 
 
 # Create models directory
