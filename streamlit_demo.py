@@ -132,6 +132,9 @@ class DummyTFT(nn.Module):
         super().__init__()
         self.linear = nn.Linear(1, 1)
 
+    def forward(self, x):
+        return self.linear(x)
+
 model = DummyTFT()
 torch.save(model.state_dict(), "models/tft_state_dict.pt")
 
