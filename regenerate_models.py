@@ -14,7 +14,7 @@ with open("models/stack.pkl", "wb") as f:
     pickle.dump(stack_model, f)
 
 # ----- 2. Save dummy xgb.json -----
-xgb_model = xgb.XGBClassifier()
+xgb = xgb.XGBRegressor()  # ✅ correct for regression
 xgb_model.fit([[0, 0], [1, 1]], [0, 1])
 xgb_model.save_model("models/xgb.json")
 
