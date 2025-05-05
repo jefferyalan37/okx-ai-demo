@@ -34,5 +34,9 @@ joblib.dump(stack, "models/stack.pkl")
 # Save dummy TFT
 model = DummyTFT()
 torch.save(model.state_dict(), "models/tft_state_dict.pt")
+st.write("Preview BTC Dataset:", df.head())
+st.write("Shape:", df.shape)
+st.write("Columns:", df.columns)
+
 
 print("✅ All model files generated in models/")
