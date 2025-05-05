@@ -4,10 +4,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor
 import xgboost as xgb
 
-class DummyTFT(nn.Module):
+class DummyTFT(torch.nn.Module):
     def __init__(self):
         super().__init__()
-        self.linear = nn.Linear(1, 1)
+        self.linear = torch.nn.Linear(10, 1)
 
     def forward(self, x):
         return self.linear(x)
