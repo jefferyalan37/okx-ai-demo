@@ -18,6 +18,11 @@ os.makedirs("models", exist_ok=True)
 
 X = np.array([[i] for i in range(10)])
 y = np.array([i * 2.5 for i in range(10)])
+df = pd.read_csv("OKXDemoProject-5/final_bitcoin_daily_processed.csv")
+
+# Your feature engineering logic here
+X = df[["open", "high", "low", "close", "volume"]]  # adjust as needed
+
 
 # Save scaler
 scaler = StandardScaler().fit(X)
@@ -37,6 +42,7 @@ torch.save(model.state_dict(), "models/tft_state_dict.pt")
 st.write("Preview BTC Dataset:", df.head())
 st.write("Shape:", df.shape)
 st.write("Columns:", df.columns)
+
 
 
 print("✅ All model files generated in models/")
