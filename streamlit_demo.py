@@ -125,7 +125,16 @@ y = np.array([i * 2 for i in range(10)])
 # Scaler
 scaler = StandardScaler()
 scaler.fit(X)
-joblib.dump(scaler, "models/scaler.pkl")
+import torch.nn as nn
+
+class DummyTFT(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.linear = nn.Linear(1, 1)
+
+model = DummyTFT()
+torch.save(model.state_dict(), "models/tft_state_dict.pt")
+
 
 # XGBoost model
 xgb_model = xgb.XGBRegressor()
