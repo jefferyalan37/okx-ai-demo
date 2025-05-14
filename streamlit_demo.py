@@ -2,9 +2,8 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 
-# Inject OKX institutional CSS styling
+# Inject inline OKX CSS styling
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
@@ -95,7 +94,7 @@ with tab2:
 with tab3:
     st.write("💼 Advanced reporting & white-glove support available.")
 
-# Sample AI forecast chart
+# AI forecast chart
 st.subheader("AI Forecast (Sample Data)")
-data = np.cumsum(np.random.randn(60))  # Simulated trend
+data = np.cumsum(np.random.randn(60))  # Simulated data
 st.line_chart(data, use_container_width=True)
